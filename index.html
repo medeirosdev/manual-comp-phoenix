@@ -133,6 +133,47 @@
       margin-bottom: 48px;
     }
 
+    .manifesto {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      max-width: 580px;
+      margin-bottom: 40px;
+      text-align: left;
+    }
+
+    .manifesto-item {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      background: rgba(255, 106, 0, 0.06);
+      border: 1px solid rgba(255, 106, 0, 0.2);
+      border-left: 3px solid var(--cyan);
+      border-radius: 10px;
+      padding: 16px 20px;
+    }
+
+    .manifesto-icon {
+      font-size: 1.4rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .manifesto-item strong {
+      display: block;
+      color: var(--cyan);
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+      letter-spacing: 0.5px;
+    }
+
+    .manifesto-item span {
+      color: var(--muted);
+      font-size: 0.88rem;
+      line-height: 1.6;
+    }
+
     .hero-badges {
       display: flex;
       gap: 12px;
@@ -401,6 +442,24 @@
     <div class="hero-tag">Phoenix Unicamp · Equipe de Robótica</div>
     <h1>Manual de<br><span class="accent">Boas Práticas</span><br>de <span class="gold">Código</span></h1>
     <p>Convenções, padrões e exemplos para manter o código da equipe legível, consistente e fácil de evoluir.</p>
+
+    <div class="manifesto">
+      <div class="manifesto-item">
+        <div class="manifesto-icon">🧱</div>
+        <div>
+          <strong>Simplicidade primeiro</strong>
+          <span>Código simples não é código ruim — é código que qualquer pessoa da equipe consegue ler, entender e corrigir, inclusive sob pressão na véspera da competição.</span>
+        </div>
+      </div>
+      <div class="manifesto-item">
+        <div class="manifesto-icon">🤝</div>
+        <div>
+          <strong>Acessível a todos</strong>
+          <span>Este código não pertence a uma pessoa. Ele pertence à equipe. Escreva como se o próximo a ler fosse alguém que acabou de entrar na Phoenix — porque provavelmente vai ser.</span>
+        </div>
+      </div>
+    </div>
+
     <div class="hero-badges">
       <div class="badge">C++ / Arduino</div>
       <div class="badge">Dart / Flutter</div>
