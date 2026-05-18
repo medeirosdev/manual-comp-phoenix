@@ -376,6 +376,7 @@
     <li><a href="#variaveis">Variáveis</a></li>
     <li><a href="#funcoes">Funções</a></li>
     <li><a href="#arquivos">Arquivos</a></li>
+    <li><a href="#simplicidade">Simplicidade</a></li>
     <li><a href="#git">Git</a></li>
   </ul>
 </nav>
@@ -706,9 +707,115 @@ std::<span class="tp">vector</span>&lt;<span class="tp">TrackPoint</span>&gt; g_
 
   <div class="divider"></div>
 
-  <!-- 05 GIT -->
+  <!-- 05 SIMPLICIDADE -->
+  <section id="simplicidade">
+    <div class="section-number">05 — Simplicidade</div>
+    <h2>Código que <span class="accent">qualquer um lê</span></h2>
+    <p class="section-desc">
+      O robô corre na competição com gente nova olhando o código em campo. Se só o autor entende, é um problema.
+      Escreva para o colega que acabou de entrar na equipe.
+    </p>
+    <div class="rules">
+
+      <div class="rule">
+        <div class="rule-header">
+          <div class="rule-icon">🚫</div>
+          <h3>Sem operador ternário</h3>
+        </div>
+        <p>O ternário economiza uma linha, mas exige que o leitor monte o if/else na cabeça. Em campo, sob pressão, isso custa tempo.</p>
+        <div class="code-pair">
+          <div class="code-block">
+            <div class="code-label bad">✗ Evitar</div>
+<pre><span class="tp">float</span> vel = ativo ? <span class="num">3.0f</span> : <span class="num">0.0f</span>;
+
+<span class="fn">send_message</span>(erro ? <span class="str">"falhou"</span> : <span class="str">"ok"</span>);
+
+<span class="kw">return</span> (x > <span class="num">0</span>) ? x : -x;</pre>
+          </div>
+          <div class="code-block">
+            <div class="code-label good">✓ Preferir</div>
+<pre><span class="tp">float</span> vel;
+<span class="kw">if</span> (ativo) {
+    vel = <span class="num">3.0f</span>;
+} <span class="kw">else</span> {
+    vel = <span class="num">0.0f</span>;
+}
+
+<span class="kw">if</span> (erro) {
+    <span class="fn">send_message</span>(<span class="str">"falhou"</span>);
+} <span class="kw">else</span> {
+    <span class="fn">send_message</span>(<span class="str">"ok"</span>);
+}</pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="rule">
+        <div class="rule-header">
+          <div class="rule-icon">📐</div>
+          <h3>Sem if de uma linha — sempre use chaves</h3>
+        </div>
+        <p>If sem chaves é armadilha clássica: alguém adiciona uma linha achando que está dentro do bloco, e não está. Sempre use <code>{ }</code>.</p>
+        <div class="code-pair">
+          <div class="code-block">
+            <div class="code-label bad">✗ Evitar</div>
+<pre><span class="kw">if</span> (erro) <span class="fn">parar</span>();
+
+<span class="kw">if</span> (ativo)
+    <span class="fn">executar</span>();
+
+<span class="kw">for</span> (<span class="tp">int</span> i = <span class="num">0</span>; i &lt; n; i++)
+    mapa[i] = <span class="num">0</span>;</pre>
+          </div>
+          <div class="code-block">
+            <div class="code-label good">✓ Preferir</div>
+<pre><span class="kw">if</span> (erro) {
+    <span class="fn">parar</span>();
+}
+
+<span class="kw">if</span> (ativo) {
+    <span class="fn">executar</span>();
+}
+
+<span class="kw">for</span> (<span class="tp">int</span> i = <span class="num">0</span>; i &lt; n; i++) {
+    mapa[i] = <span class="num">0</span>;
+}</pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="rule">
+        <div class="rule-header">
+          <div class="rule-icon">🧩</div>
+          <h3>Prefira o óbvio ao inteligente</h3>
+        </div>
+        <p>Código "esperto" impressiona quem escreveu e confunde todo o resto. Se existe uma forma simples e uma forma elegante, escolha a simples.</p>
+        <div class="code-pair">
+          <div class="code-block">
+            <div class="code-label bad">✗ Evitar</div>
+<pre><span class="cmt">// "normaliza" ângulo</span>
+alpha -= <span class="num">2</span> * M_PI * ((<span class="tp">int</span>)(alpha / M_PI + <span class="num">1</span>) >> <span class="num">1</span>);</pre>
+          </div>
+          <div class="code-block">
+            <div class="code-label good">✓ Preferir</div>
+<pre><span class="cmt">// Normaliza alpha para [-PI, PI]</span>
+<span class="kw">while</span> (alpha >  M_PI) { alpha -= <span class="num">2.0f</span> * M_PI; }
+<span class="kw">while</span> (alpha < -M_PI) { alpha += <span class="num">2.0f</span> * M_PI; }</pre>
+          </div>
+        </div>
+        <div class="tip">
+          <strong>Regra de ouro:</strong> se você precisou de mais de 5 segundos para lembrar o que aquela linha faz, reescreva.
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- 06 GIT -->
   <section id="git">
-    <div class="section-number">05 — Git</div>
+    <div class="section-number">06 — Git</div>
     <h2>Histórico que <span class="accent">conta uma história</span></h2>
     <p class="section-desc">
       O <code>git log</code> deve funcionar como um diário técnico da equipe. Commits bem escritos valem mais que comentários no código.
@@ -782,6 +889,8 @@ std::<span class="tp">vector</span>&lt;<span class="tp">TrackPoint</span>&gt; g_
 <span class="gold">□</span>  Funções têm prefixo de módulo (mapper_, linha_virtual_...)
 <span class="gold">□</span>  Headers têm guard (#ifndef ... #endif)
 <span class="gold">□</span>  Estado interno é static no .cpp
+<span class="gold">□</span>  Nenhum operador ternário no código
+<span class="gold">□</span>  Todo if/for/while tem chaves { }
 <span class="gold">□</span>  Mensagem de commit segue o padrão tipo: descrição</pre>
       </div>
     </div>
