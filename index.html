@@ -153,12 +153,6 @@
       padding: 16px 20px;
     }
 
-    .manifesto-icon {
-      font-size: 1.4rem;
-      flex-shrink: 0;
-      margin-top: 2px;
-    }
-
     .manifesto-item strong {
       display: block;
       color: var(--cyan);
@@ -284,7 +278,7 @@
     }
 
     .rule:hover {
-      border-color: rgba(0, 212, 255, 0.4);
+      border-color: rgba(255, 106, 0, 0.4);
       transform: translateX(4px);
     }
 
@@ -296,15 +290,18 @@
     }
 
     .rule-icon {
-      width: 32px;
-      height: 32px;
-      border-radius: 8px;
-      background: rgba(0, 212, 255, 0.1);
+      width: 28px;
+      height: 28px;
+      border-radius: 6px;
+      background: rgba(255, 106, 0, 0.1);
       border: 1px solid var(--border);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--cyan);
+      font-family: monospace;
       flex-shrink: 0;
     }
 
@@ -445,14 +442,12 @@
 
     <div class="manifesto">
       <div class="manifesto-item">
-        <div class="manifesto-icon">🧱</div>
         <div>
           <strong>Simplicidade primeiro</strong>
           <span>Código simples não é código ruim — é código que qualquer pessoa da equipe consegue ler, entender e corrigir, inclusive sob pressão na véspera da competição.</span>
         </div>
       </div>
       <div class="manifesto-item">
-        <div class="manifesto-icon">🤝</div>
         <div>
           <strong>Acessível a todos</strong>
           <span>Este código não pertence a uma pessoa. Ele pertence à equipe. Escreva como se o próximo a ler fosse alguém que acabou de entrar na Phoenix — porque provavelmente vai ser.</span>
@@ -482,7 +477,7 @@
 
       <div class="rule">
         <div class="rule-header">
-          <div class="rule-icon">💬</div>
+          <div class="rule-icon">#</div>
           <h3>Explique o PORQUÊ, não o QUÊ</h3>
         </div>
         <p>O código já diz o que ele faz. O comentário deve explicar a decisão por trás — a restrição física, o comportamento esperado, o bug que aquilo corrige.</p>
@@ -510,7 +505,7 @@ i++;
 
       <div class="rule">
         <div class="rule-header">
-          <div class="rule-icon">📌</div>
+          <div class="rule-icon">#</div>
           <h3>Comentários de seção em funções longas</h3>
         </div>
         <p>Use blocos de comentário para separar etapas dentro de funções grandes. Facilita navegar sem ler tudo.</p>
@@ -531,7 +526,7 @@ i++;
 
       <div class="rule">
         <div class="rule-header">
-          <div class="rule-icon">🚫</div>
+          <div class="rule-icon">#</div>
           <h3>Não comente código morto — delete</h3>
         </div>
         <p>Código comentado polui, cria dúvida e nunca volta a ser usado. O Git guarda o histórico — use <code>git log</code> se precisar recuperar algo.</p>
@@ -569,7 +564,7 @@ i++;
 
       <div class="rule">
         <div class="rule-header">
-          <div class="rule-icon">🐍</div>
+          <div class="rule-icon">#</div>
           <h3>C++ → snake_case · Dart → camelCase</h3>
         </div>
         <div class="pill-grid">
@@ -592,7 +587,7 @@ i++;
 
       <div class="rule">
         <div class="rule-header">
-          <div class="rule-icon">🔒</div>
+          <div class="rule-icon">#</div>
           <h3>Prefixos para escopo (C++)</h3>
         </div>
         <p>Variáveis estáticas de módulo usam prefixo <code>s_</code>. Constantes de configuração ficam em <code>controllers.h</code> como <code>#define</code> em UPPER_CASE.</p>
@@ -613,7 +608,7 @@ i++;
 
       <div class="rule">
         <div class="rule-header">
-          <div class="rule-icon">📐</div>
+          <div class="rule-icon">#</div>
           <h3>Inclua a unidade no nome quando relevante</h3>
         </div>
         <p>Evita erros de conversão. Se uma variável guarda metros, diga que é metros.</p>
@@ -635,7 +630,7 @@ i++;
 
       <div class="rule">
         <div class="rule-header">
-          <div class="rule-icon">📏</div>
+          <div class="rule-icon">#</div>
           <h3>Nomes longos são bem-vindos</h3>
         </div>
         <p>Não existe prêmio por escrever menos letras. Um nome longo e claro vale muito mais do que uma abreviação que ninguém entende na semana seguinte.</p>
@@ -678,7 +673,7 @@ i++;
 
       <div class="rule">
         <div class="rule-header">
-          <div class="rule-icon">🏷️</div>
+          <div class="rule-icon">#</div>
           <h3>Nome = verbo + substantivo</h3>
         </div>
         <p>Funções são ações. O nome deve começar com verbo e deixar claro o que é transformado ou retornado.</p>
@@ -704,7 +699,7 @@ i++;
 
       <div class="rule">
         <div class="rule-header">
-          <div class="rule-icon">📦</div>
+          <div class="rule-icon">#</div>
           <h3>Prefixo de módulo no nome (C++)</h3>
         </div>
         <p>Funções públicas de um módulo levam o prefixo do módulo. Facilita autocompletar e deixa clara a origem.</p>
@@ -725,7 +720,7 @@ i++;
 
       <div class="rule">
         <div class="rule-header">
-          <div class="rule-icon">✂️</div>
+          <div class="rule-icon">#</div>
           <h3>Máximo ~40 linhas por função</h3>
         </div>
         <p>Se uma função não cabe na tela, provavelmente está fazendo mais de uma coisa. Extraia sub-funções com nomes descritivos.</p>
@@ -750,7 +745,7 @@ i++;
 
       <div class="rule">
         <div class="rule-header">
-          <div class="rule-icon">📁</div>
+          <div class="rule-icon">#</div>
           <h3>Um módulo = uma responsabilidade</h3>
         </div>
         <div class="code-block">
@@ -769,7 +764,7 @@ i++;
 
       <div class="rule">
         <div class="rule-header">
-          <div class="rule-icon">🛡️</div>
+          <div class="rule-icon">#</div>
           <h3>Header guard em todo .h</h3>
         </div>
         <div class="code-block">
@@ -787,7 +782,7 @@ i++;
 
       <div class="rule">
         <div class="rule-header">
-          <div class="rule-icon">🔐</div>
+          <div class="rule-icon">#</div>
           <h3>Estado interno como static no .cpp</h3>
         </div>
         <p>Variáveis de estado de um módulo nunca ficam no <code>.h</code>. Ficam como <code>static</code> no <code>.cpp</code>, invisíveis para o resto do código.</p>
@@ -820,7 +815,7 @@ std::<span class="tp">vector</span>&lt;<span class="tp">TrackPoint</span>&gt; g_
 
       <div class="rule">
         <div class="rule-header">
-          <div class="rule-icon">🚫</div>
+          <div class="rule-icon">#</div>
           <h3>Sem operador ternário</h3>
         </div>
         <p>O ternário economiza uma linha, mas exige que o leitor monte o if/else na cabeça. Em campo, sob pressão, isso custa tempo.</p>
@@ -853,7 +848,7 @@ std::<span class="tp">vector</span>&lt;<span class="tp">TrackPoint</span>&gt; g_
 
       <div class="rule">
         <div class="rule-header">
-          <div class="rule-icon">📐</div>
+          <div class="rule-icon">#</div>
           <h3>Sem if de uma linha — sempre use chaves</h3>
         </div>
         <p>If sem chaves é armadilha clássica: alguém adiciona uma linha achando que está dentro do bloco, e não está. Sempre use <code>{ }</code>.</p>
@@ -887,7 +882,7 @@ std::<span class="tp">vector</span>&lt;<span class="tp">TrackPoint</span>&gt; g_
 
       <div class="rule">
         <div class="rule-header">
-          <div class="rule-icon">🧩</div>
+          <div class="rule-icon">#</div>
           <h3>Prefira o óbvio ao inteligente</h3>
         </div>
         <p>Código "esperto" impressiona quem escreveu e confunde todo o resto. Se existe uma forma simples e uma forma elegante, escolha a simples.</p>
@@ -925,7 +920,7 @@ alpha -= <span class="num">2</span> * M_PI * ((<span class="tp">int</span>)(alph
 
       <div class="rule">
         <div class="rule-header">
-          <div class="rule-icon">📝</div>
+          <div class="rule-icon">#</div>
           <h3>Formato: tipo: descrição curta em PT-BR</h3>
         </div>
         <div class="pill-grid">
@@ -945,7 +940,7 @@ alpha -= <span class="num">2</span> * M_PI * ((<span class="tp">int</span>)(alph
 
       <div class="rule">
         <div class="rule-header">
-          <div class="rule-icon">🌿</div>
+          <div class="rule-icon">#</div>
           <h3>Branches com nome descritivo</h3>
         </div>
         <div class="pill-grid">
@@ -960,7 +955,7 @@ alpha -= <span class="num">2</span> * M_PI * ((<span class="tp">int</span>)(alph
 
       <div class="rule">
         <div class="rule-header">
-          <div class="rule-icon">🔬</div>
+          <div class="rule-icon">#</div>
           <h3>Um commit = uma mudança lógica</h3>
         </div>
         <p>Não agrupe mudanças não relacionadas no mesmo commit. Isso facilita reverter bugs específicos sem perder outras melhorias.</p>
