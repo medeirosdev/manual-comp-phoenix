@@ -7,14 +7,14 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <style>
     :root {
-      --bg: #07070f;
-      --surface: #0f0f1e;
-      --cyan: #00d4ff;
-      --gold: #ffc840;
-      --text: #e0e0f0;
-      --muted: #6b6b8a;
-      --border: rgba(0, 212, 255, 0.15);
-      --code-bg: #0b0b1a;
+      --bg: #080600;
+      --surface: #110e00;
+      --cyan: #ff6a00;
+      --gold: #ffaa00;
+      --text: #f0ece0;
+      --muted: #7a6a50;
+      --border: rgba(255, 106, 0, 0.18);
+      --code-bg: #0d0a00;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -53,11 +53,21 @@
     }
 
     .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
       font-size: 1.1rem;
       font-weight: 700;
       letter-spacing: 3px;
       color: var(--cyan);
       text-transform: uppercase;
+      text-decoration: none;
+    }
+
+    .nav-logo img {
+      height: 36px;
+      width: auto;
+      object-fit: contain;
     }
 
     .nav-logo span { color: var(--gold); }
@@ -370,7 +380,10 @@
 <canvas id="bg"></canvas>
 
 <nav>
-  <div class="nav-logo">PHX<span>·</span>ONE</div>
+  <div class="nav-logo">
+    <img src="images/phoenix.jpg" alt="Phoenix" />
+    PHX<span>·</span>ONE
+  </div>
   <ul>
     <li><a href="#comentarios">Comentários</a></li>
     <li><a href="#variaveis">Variáveis</a></li>
@@ -941,7 +954,7 @@ geometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
 
 const dotMat = new THREE.PointsMaterial({
   size: 1.2,
-  color: 0x00d4ff,
+  color: 0xff6a00,
   transparent: true,
   opacity: 0.7,
   sizeAttenuation: true,
@@ -952,7 +965,7 @@ scene.add(dots);
 
 // Linhas de conexão
 const lineMat = new THREE.LineBasicMaterial({
-  color: 0x00d4ff,
+  color: 0xff6a00,
   transparent: true,
   opacity: 0.08,
 });
